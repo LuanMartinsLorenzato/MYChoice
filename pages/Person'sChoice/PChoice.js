@@ -29,7 +29,7 @@ function PChoice({route}) {
   };
 
   function setGenre(){
-    const genre = genero.toLowerCase();
+    const genre = genero.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
     switch(genre) {
       case 'infantil':
         numGenre = 6;
@@ -108,15 +108,15 @@ function PChoice({route}) {
     }
   }
 
-  const getIngredient = (e) =>{
+  const getIngredient = (e) => {
     setIngredient(e);
   };
 
-  const getColor = (e) =>{
+  const getColor = (e) => {
     setColor(e);
   };
 
-  const getMonth = (e) =>{
+  const getMonth = (e) => {
     setMonth(e);
   };
 
