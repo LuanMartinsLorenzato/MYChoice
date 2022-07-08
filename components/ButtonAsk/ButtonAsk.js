@@ -7,8 +7,8 @@ function ButtonAsk(props) {
 	const Popup = () => {
 		if(props.name === "genre"){
     	Alert.alert("Ajuda",`Escolha um gênero de filme que desejar.\nPor favor escreva corretamente para a busca ser precisa!`)
-		} else if(props.name === "letter"){
-    	Alert.alert("Ajuda","Escolha apenas uma letra")
+		} else if(props.name === "ingredient"){
+    	Alert.alert("Ajuda","Escolha um ingrediente, pode ser uma fruta!\nCuidado com a pimenta!!")
 		}else if(props.name === "color"){
     	Alert.alert("Ajuda","Escolha uma cor, o limite está em 9(nove) caracteres")
 		}else if(props.name === "month"){
