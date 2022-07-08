@@ -3,6 +3,7 @@ import { Alert } from 'react-native';
 import ButtonAsk from '../../components/ButtonAsk/ButtonAsk';
 import Header from '../../components/Header/Header';
 import SelectInput from '../../components/Select/SelectInput';
+
 import {
     KeyboardView,
     Container,
@@ -14,7 +15,11 @@ import {
     ViewL,
 } from './style';
 
-function Maf({route}) {
+function Maf({ route }) {
+    let film = 'sl';
+    let drink = 'sl';
+    let food = 'sl';
+    let dessert = 'sl';
 
     Alert.alert("Parabéns!","Já temos o resultado!\nDivirta-se!!")
 
@@ -32,28 +37,28 @@ function Maf({route}) {
                     <Text>
                         Filme: 
                     </Text>
-                    <SelectInput name="filme"/>
+                    <SelectInput film={film} />
 
                 </ViewF>
                 <View>
                     <Text>
                         Bebida: 
                     </Text>
-                    <SelectInput name="drink"/>
+                    <SelectInput drink={drink}/>
                         
                 </View>
                 <View>
                     <Text>
                         Comida: 
                     </Text>
-                    <SelectInput name="food"/>
+                    <SelectInput food={food}/>
                         
                 </View>
                 <ViewL>
                     <Text>
                         Sobremesa:
                     </Text>
-                    <SelectInput name="dessert"/>
+                    <SelectInput dessert={dessert}/>
                         
                 </ViewL>
                 <ButtonAsk name="maf"/>

@@ -1,6 +1,4 @@
-import axios from "axios";
-import { Alert } from "react-native";
-
+import api from "./requestApi";
 export default function apiPage(stream, genre){
   let page;
 
@@ -315,37 +313,4 @@ export default function apiPage(stream, genre){
   }
 
   api(stream, genre, page);
-  
-};
-
-function api(stream, genre, page) {
-  let numPage = Math.floor(Math.random() * page) + 1 ;
-
-  const options = {
-    method: 'GET',
-    url: 'https://streaming-availability.p.rapidapi.com/search/basic',
-    params: {
-    country: 'us',
-    genre: `${genre}`,
-    page: `${numPage}`,
-    service: `${stream}`,
-    type: 'movie',
-    output_language: 'en',
-    language: 'en'
-    },
-    headers: {
-      'x-rapidapi-host': 'streaming-availability.p.rapidapi.com',
-      'x-rapidapi-key': '4123081fe8msh9b739bdb23b939cp12b6a3jsn6fec55cff028'
-    }
-  };
-
-  // if(page === 0) 
-  //   Alert.alert("Não temos filmes desse gênero");
-  
-  axios.request(options).then(function (response) {
-    console.log (response.data.results[2])
-  }).catch(function (error) {
-      console.error(error);
-  });
-
 };
