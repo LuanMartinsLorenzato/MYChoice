@@ -24,12 +24,15 @@ function PChoice({route}) {
   const [month, setMonth] = useState();
   let numGenre;
 
-  const getGenero = (e) =>{
+  const getGenero = (e) => {
     setGenero(e);
   };
 
-  function setGenre(){
-    const genre = genero.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+  function setGenre() {
+    let genre;
+    if(genero) { 
+      genre = genero.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+    }
     switch(genre) {
       case 'infantil':
         numGenre = 6;
@@ -127,7 +130,7 @@ function PChoice({route}) {
     }else{
       if(numGenre === 999){
         Alert.alert("Poxa!!",
-        `Não encontramos nenhum filme com esse gênero\nClique no interrogação abaixo para entender melhor!`);
+        `Não encontramos nenhum filme com esse gênero\nClique no interrogação ao lado do campo para entender melhor!`);
       }else if(numGenre === 7){
         Alert.alert("Desculpa!", "Não temos nenhum filme com esse gênero");
       }else{
