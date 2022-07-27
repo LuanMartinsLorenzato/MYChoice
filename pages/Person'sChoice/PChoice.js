@@ -20,7 +20,7 @@ function PChoice({route}) {
   const navigation = useNavigation();
   const [genero, setGenero] = useState();
   const [ingredient, setIngredient] = useState();
-  const [color, setColor] = useState();
+  const [age, setAge] = useState();
   const [month, setMonth] = useState();
   let numGenre;
 
@@ -115,8 +115,8 @@ function PChoice({route}) {
     setIngredient(e);
   };
 
-  const getColor = (e) => {
-    setColor(e);
+  const getAge = (e) => {
+    setAge(e);
   };
 
   const getMonth = (e) => {
@@ -125,7 +125,7 @@ function PChoice({route}) {
 
   function next() {
     setGenre();
-    if(genero === undefined || ingredient === undefined || color === undefined || month === undefined){
+    if(genero === undefined || ingredient === undefined || age === undefined || month === undefined){
       Alert.alert("Opa!","Tivemos um problema!\nPrecisamos que preencha todos os campos para prosseguir (=");
     }else{
       if(numGenre === 999){
@@ -139,7 +139,7 @@ function PChoice({route}) {
           routes: [{name: "Streaming", params:{
           numGenre: numGenre, 
           ingredient: ingredient, 
-          color: color, 
+          age: age, 
           month: month,
           name: route.params?.name
           }}],
@@ -195,20 +195,20 @@ function PChoice({route}) {
 
         <View>
           <Text>
-            Escolha uma cor: 
+            Adicione sua idade: 
           </Text>
 
           <TextInputMask
             type={'custom'}
             options={{
-              mask: 'AAAAAAAAA',
+              mask: '999',
             }}
-            value={color}
+            value={age}
             style={styles.Input}
-            onChangeText={getColor}
+            onChangeText={getAge}
           />
 
-          <ButtonAsk name="color"/>
+          <ButtonAsk name="age"/>
 
         </View>
 

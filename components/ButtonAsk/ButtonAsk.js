@@ -10,7 +10,7 @@ function ButtonAsk(props) {
 		} else if(props.name === "ingredient"){
     	Alert.alert("Ajuda","Escolha um ingrediente, pode ser uma fruta!\nCuidado com a pimenta!!")
 		}else if(props.name === "color"){
-    	Alert.alert("Ajuda","Escolha uma cor, o limite está em 9(nove) caracteres")
+    	Alert.alert("Ajuda","Digite sua idade, usaremos para melhores resultados (emoji)")
 		}else if(props.name === "month"){
     	Alert.alert("Ajuda","Atenção!!\nO mês deve ser escrito corretamente!\nEscolha um mês, o limite está em 9(nove) caracteres")
 		}else if(props.name === "streaming"){

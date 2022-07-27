@@ -6,12 +6,11 @@ function SelectInput(props) {
   const [food, setFood] = useState(props.food)
   const [drink, setDrink] = useState(props.drink)
   const [dessert, setDessert] = useState(props.dessert)
-
-
+  //console.log(props.film)
   return (
     <>
       <Select>
-        <TextSelect>{film}</TextSelect>
+        <TextSelect>{film}{food}{drink}{dessert}</TextSelect>
           <TextArrow>▲</TextArrow>
       </Select>
     </>
