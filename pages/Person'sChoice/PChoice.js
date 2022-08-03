@@ -3,7 +3,7 @@ import ButtonAsk from '../../components/ButtonAsk/ButtonAsk';
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import { useNavigation } from '@react-navigation/native';
-import { Alert, StyleSheet } from 'react-native';
+import { Alert, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 import {
   KeyboardView,
@@ -31,7 +31,7 @@ function PChoice({route}) {
   function setGenre() {
     let genre;
     if(genero) { 
-      genre = genero.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+      genre = genero.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").trim();
     }
     switch(genre) {
       case 'infantil':
@@ -149,92 +149,88 @@ function PChoice({route}) {
   }
 
   return(
-    <KeyboardView>
-      <Header />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <KeyboardView behavior={Platform.OS === "ios" ? "padding" : "height"}>
+        <Header />
+        <Container>
+          <Subtitle>
+            Vamos lá {route.params?.name}
+          </Subtitle>
 
-      <Container>
-        <Subtitle>
-          Vamos lá {route.params?.name}
-        </Subtitle>
+          <ViewF>
+            <Text>
+              Escolha um gênero: 
+            </Text>
 
-        <ViewF>
-          <Text>
-            Escolha um gênero: 
-          </Text>
-
-          <TextInputMask
-            type={'custom'}
-            options={{
-              mask: '************',
-            }}
-            value={genero}
-            style={styles.Input}
-            onChangeText={getGenero}
-            require
-          />
-
-          <ButtonAsk name="genre" />
-        </ViewF>
-
-        <View>
-          <Text>
-            Escolha um ingrediente: 
-          </Text>
-          <TextInputMask
-            type={'custom'}
-            options={{
-              mask: '*************',
-            }}
-            value={ingredient}
-            style={styles.Input}
-            onChangeText={getIngredient}
-          />
-          <ButtonAsk name="ingredient"/>
-
-        </View>
-
-        <View>
-          <Text>
-            Adicione sua idade: 
-          </Text>
-
-          <TextInputMask
-            type={'custom'}
-            options={{
-              mask: '999',
-            }}
-            value={age}
-            style={styles.Input}
-            onChangeText={getAge}
-          />
-
-          <ButtonAsk name="age"/>
-
-        </View>
-
-        <ViewL>
-          <Text>
-            Escolha um mês: 
-          </Text>
             <TextInputMask
               type={'custom'}
               options={{
-                mask: '*********',
+                mask: '************',
               }}
-              value={month}
+              value={genero}
               style={styles.Input}
-              onChangeText={getMonth}
+              onChangeText={getGenero}
+              require
             />
 
-          <ButtonAsk name="month"/>
+            <ButtonAsk name="genre" />
+          </ViewF>
 
-        </ViewL>
+          <View>
+            <Text>
+              Escolha um ingrediente: 
+            </Text>
+            <TextInputMask
+              type={'custom'}
+              options={{
+                mask: '*************',
+              }}
+              value={ingredient}
+              style={styles.Input}
+              onChangeText={getIngredient}
+            />
+            <ButtonAsk name="ingredient"/>
+          </View>
 
-        <Button onPress={() => (next())}/>
+          <View>
+            <Text>
+              Adicione sua idade: 
+            </Text>
 
-      </Container>
+            <TextInputMask
+              type={'custom'}
+              options={{
+                mask: '999',
+              }}
+              value={age}
+              style={styles.Input}
+              onChangeText={getAge}
+            />
 
-    </KeyboardView>
+            <ButtonAsk name="age"/>
+          </View>
+
+          <ViewL>
+            <Text>
+              Escolha um mês: 
+            </Text>
+              <TextInputMask
+                type={'custom'}
+                options={{
+                  mask: '*********',
+                }}
+                value={month}
+                style={styles.Input}
+                onChangeText={getMonth}
+              />
+
+            <ButtonAsk name="month"/>
+          </ViewL>
+
+          <Button onPress={() => (next())}/>
+        </Container>
+      </KeyboardView>
+    </TouchableWithoutFeedback>
   )
 }
 

@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, Dimensions, ImageBackground, View, Alert } from 'react-native';
+import { 
+  StyleSheet, 
+  Dimensions, 
+  ImageBackground, 
+  View, 
+  Alert, 
+  TouchableWithoutFeedback, 
+  Keyboard 
+} from 'react-native';
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import { useNavigation } from '@react-navigation/native';
@@ -82,29 +90,31 @@ function Entrance() {
   return(
         
     <View style={{flex:1, height: screenHeight}}>
-      <View style={{...StyleSheet.absoluteFill, backgroundColor: '#000'}}>
-        <ImageBackground
-          source={{uri: background}}
-          style={styles.ImgBg}
-          blurRadius={6}
-        >
-          <KeyboardView>
-            <Header />
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={{...StyleSheet.absoluteFill, backgroundColor: '#000'}}>
+          <ImageBackground
+            source={{uri: background}}
+            style={styles.ImgBg}
+            blurRadius={6}
+          >
+            <KeyboardView behavior={Platform.OS === "ios" ? "padding" : "height"}>
+              <Header />
 
-            <Container>
-              <Subtitle> Vamos de filmes? </Subtitle>
+              <Container>
+                <Subtitle> Vamos de filmes? </Subtitle>
 
-              <InputP1> Preciso que me fale seu nome! </InputP1>
-              <Input  placeholder="Escreva seu nome" onChangeText={(e) => (getFirstName(e))}/>
+                <InputP1> Preciso que me fale seu nome! </InputP1>
+                <Input  placeholder="Escreva seu nome" onChangeText={(e) => (getFirstName(e))}/>
 
-              <InputP2> Tem mais alguém ai? </InputP2>
-              <Input placeholder="Escreva o nome de mais uma pessoa" onChangeText={(e) => (getSecondName(e))}/>
+                <InputP2> Tem mais alguém ai? </InputP2>
+                <Input placeholder="Escreva o nome de mais uma pessoa" onChangeText={(e) => (getSecondName(e))}/>
 
-              <Button onPress={() => (next())}/>
-            </Container>
-          </KeyboardView>
-        </ImageBackground>
-      </View>
+                <Button onPress={() => (next())}/>
+              </Container>
+            </KeyboardView>
+          </ImageBackground>
+        </View>
+      </TouchableWithoutFeedback>
     </View>
         
   )

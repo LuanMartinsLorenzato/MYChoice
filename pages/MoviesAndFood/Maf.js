@@ -1,4 +1,4 @@
-import React, {useState, useMemo, useCallback, useEffect} from 'react';
+import React, {useState, useMemo, useEffect} from 'react';
 import { Alert } from 'react-native';
 import ButtonAsk from '../../components/ButtonAsk/ButtonAsk';
 import Header from '../../components/Header/Header';
@@ -19,21 +19,28 @@ import {
 
 function Maf({ route }) {
     let axiosOptions = requestApi(route.params?.stream, route.params?.numGenre, route.params?.page);
-    let [film, setFilm] = useState();
-    useMemo(() => {
-        axios.request(axiosOptions).then(function (response) {
-            const film = response.data.results[0].title
-            setFilm(film);
-        }).catch(function (error) {
+    const [film, setFilm] = useState();
+    let filmArray = []
+    useEffect(() => {
+        Alert.alert("Parabéns!","Já temos o resultado!\nDivirta-se!!")
+        async function getData() {
+            await axios.request(axiosOptions).then(function (response) {
+                response.data.results.map(index => {
+                    filmArray.push(index.title);
+                });
+                setFilm(filmArray[0]);
+            }).catch(function (error) {
             console.error(error);
-        })
-    }, [])
+            })
+        }
+        getData();
+    }, []);
+
     let drink = 'sl';
     let food = 'sl';
     let dessert = 'sl';
-      console.log(film)
     
-    Alert.alert("Parabéns!","Já temos o resultado!\nDivirta-se!!")
+    
 
     return(
         <KeyboardView>
@@ -49,7 +56,9 @@ function Maf({ route }) {
                     <Text>
                         Filme: 
                     </Text>
-                    <SelectInput film={film} />
+                    {film &&
+                        <SelectInput film={film} />
+                    }
 
                 </ViewF>
                 <View>

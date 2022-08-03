@@ -6,7 +6,7 @@ function SelectInput(props) {
   const [food, setFood] = useState(props.food)
   const [drink, setDrink] = useState(props.drink)
   const [dessert, setDessert] = useState(props.dessert)
-  //console.log(props.film)
+  console.log(film)
   return (
     <>
       <Select>
