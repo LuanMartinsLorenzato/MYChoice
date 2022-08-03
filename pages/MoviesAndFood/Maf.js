@@ -20,6 +20,9 @@ import {
 function Maf({ route }) {
     let axiosOptions = requestApi(route.params?.stream, route.params?.numGenre, route.params?.page);
     const [film, setFilm] = useState();
+    const [drink, setDrink] = useState("Texto");
+    const [food, setFood] = useState("Texto");
+    const [dessert, setDessert] = useState("Texto");
     let filmArray = []
     useEffect(() => {
         Alert.alert("Parabéns!","Já temos o resultado!\nDivirta-se!!")
@@ -35,12 +38,6 @@ function Maf({ route }) {
         }
         getData();
     }, []);
-
-    let drink = 'sl';
-    let food = 'sl';
-    let dessert = 'sl';
-    
-    
 
     return(
         <KeyboardView>
@@ -65,22 +62,28 @@ function Maf({ route }) {
                     <Text>
                         Bebida: 
                     </Text>
-                    <SelectInput drink={drink} />
-                        
+                    {drink &&
+                        <SelectInput drink={drink} />
+                    }
+                    
                 </View>
                 <View>
                     <Text>
                         Comida: 
                     </Text>
-                    <SelectInput food={food} />
-                        
+                    {food &&
+                        <SelectInput food={food} />
+                    }
+                    
                 </View>
                 <ViewL>
                     <Text>
                         Sobremesa:
                     </Text>
+                    {dessert &&
                     <SelectInput dessert={dessert} />
-                        
+                    }
+                    
                 </ViewL>
                 <ButtonAsk name="maf" />
             </Container>
