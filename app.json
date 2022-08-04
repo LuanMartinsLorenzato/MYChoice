@@ -4,11 +4,11 @@
     "slug": "mychoice",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/MYChoice.jpg",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/MYChoice.jpg",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#000"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
