@@ -15,7 +15,7 @@ export default function App() {
     <>
       <NavigationContainer>
         <Stack.Navigator 
-          initialRouteName="PChoice"
+          initialRouteName="Entrance"
           screenOptions={{
             headerShown: false
           }}

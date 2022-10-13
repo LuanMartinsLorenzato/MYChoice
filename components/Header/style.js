@@ -7,5 +7,4 @@ export const Title = styled.Text`
     margin-top: 48px;
     padding-top: 16px;
     text-align: center;
-    
 `
