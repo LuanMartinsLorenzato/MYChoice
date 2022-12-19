@@ -41,9 +41,9 @@ function Streaming({route}) {
       index: 0,
       routes: [{name: "Maf", params:{
         page:page,
-        numGenre: route.params?.numGenre, 
+        numGenre: route.params?.numGenre,
         ingredient: route.params?.ingredient, 
-        age: route.params?.age, 
+        age: route.params?.age,
         month: route.params?.month,
         name: route.params?.name,
         stream: newStream,

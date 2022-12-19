@@ -34,6 +34,7 @@ function Maf({ route }) {
                 setFilm(filmArray[0]);
             }).catch(function (error) {
             console.error(error);
+            Alert.alert("Ops, ocorreu um erro em nossos sistemas\nRecarregue o app e tente novamente!");
             })
         }
         getData();
