@@ -3,7 +3,7 @@ import ButtonAsk from '../../components/ButtonAsk/ButtonAsk';
 import Header from '../../components/Header/Header';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { NETFLIX_DISNEY, PRIME, PARAMOUNT, STREAMS } from '../../defaults';
+import { NETFLIX, DISNEY, PRIME, PARAMOUNT, STREAMS } from '../../defaults';
 import {
   Subtitle,
   Text,
@@ -25,8 +25,11 @@ function Streaming({route}) {
       newStream = STREAMS[parseInt(Math.random() * 3)] : 
       newStream = streamSelected;
 
-    newStream === 'netflix' || newStream === 'disney' ? 
-      page = NETFLIX_DISNEY[genre] : 0;
+    newStream === 'netflix' ? 
+      page = NETFLIX[genre] : 0;
+
+    newStream === 'disney' ? 
+      page = DISNEY[genre] : 0;
 
     newStream === 'prime' ? 
       page = PRIME[genre] : 0;

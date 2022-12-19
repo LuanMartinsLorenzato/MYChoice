@@ -31,10 +31,9 @@ function PChoice({route}) {
 
   function setGenre() {
     let genre;
-    if(genero) { 
+    if(genero) {
       genre = genero.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").trim();
     }
-
     numGenre = GENRE[genre];
   }
 
