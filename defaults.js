@@ -106,9 +106,9 @@ export const PARAMOUNT = {
 };
 
 export const STREAMS = {
-    0 :'disney',
+    0 : 'disney',
     1 : 'netflix',
-    2  : 'prime',
+    2 : 'prime',
     3 : 'paramount'
 };
 
@@ -138,20 +138,3 @@ export const GENRE = {
     'crime': 80,
     'game show': 9648
 }
-
-// const obj = [
-//     {
-//         genre: 'esporte', 
-//         genreNum: 5, 
-//         streams: [
-//             {
-//                 stream : 'disney',
-//                 pages : 7
-//             },
-//             {
-//                 stream : 'netflix',
-//                 pages: 12,
-//             }
-//         ]
-//     }
-// ]
