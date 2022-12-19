@@ -198,6 +198,7 @@ function PChoice({route}) {
             </Text>
 
             <TextInputMask
+              keyboardType= 'number-pad'
               type={'custom'}
               options={{
                 mask: '999',
