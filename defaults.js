@@ -85,3 +85,30 @@ export const STREAMS = {
     2  : 'prime',
     3 : 'paramount'
 };
+
+export const GENRE = {
+    'infantil' : 6,
+    'documentario': 99,
+    'fantasia': 14,
+    'biografia': 1,
+    'musica': 10402,
+    'romance': 10749,
+    'familia': 10751,
+    'guerra': 10752,
+    'reality': 10764,
+    'aventura': 12,
+    'animacao': 16,
+    'drama': 18,
+    'terror': 27,
+    'acao': 28,
+    'comedia': 35,
+    'historia': 36,
+    'musical': 4,
+    'esporte': 5,
+    'adulto': 7,
+    'ficcao': 878,
+    'misterio': 9648,
+    'ocidental': 37,
+    'crime': 80,
+    'game show': 9648
+}

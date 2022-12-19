@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import { useNavigation } from '@react-navigation/native';
 import { Alert, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { GENRE } from '../../defaults';
 
 import {
   KeyboardView,
@@ -33,82 +34,8 @@ function PChoice({route}) {
     if(genero) { 
       genre = genero.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").trim();
     }
-    switch(genre) {
-      case 'infantil':
-        numGenre = 6;
-        break;
-      case 'documentario':
-        numGenre = 99;
-        break;
-      case 'fantasia':
-        numGenre = 14;
-        break;
-      case 'biografia':
-        numGenre = 1;
-        break;
-      case 'musica':
-        numGenre = 10402;
-        break;
-      case 'romance':
-        numGenre = 10749;
-        break;
-      case 'familia':
-        numGenre = 10751;
-        break;
-      case 'guerra':
-        numGenre = 10752;
-        break;
-      case 'reality':
-        numGenre = 10764;
-        break;
-      case 'aventura':
-        numGenre = 12;
-        break;
-      case 'animacao':
-        numGenre = 16;
-        break;
-      case 'drama':
-        numGenre = 18;
-        break;
-      case 'terror':
-        numGenre = 27;
-        break;
-      case 'acao':
-        numGenre = 28;
-        break;
-      case 'comedia':
-        numGenre = 35;
-        break;  
-      case 'historia':
-        numGenre = 36;
-        break;
-      case 'musical':
-        numGenre = 4;
-        break;
-      case 'esporte':
-        numGenre = 5;
-        break;
-      case 'adulto':
-        numGenre = 7;
-        break;
-      case 'ficcao':
-        numGenre = 878;
-        break;
-      case 'misterio':
-        numGenre = 9648;
-        break;
-      case 'ocidental':
-        numGenre = 37;
-        break;
-      case 'crime':
-        numGenre = 80;
-        break;
-      case 'game show':
-        numGenre = 9648;
-        break;
-      default:
-        numGenre = 999;
-    }
+
+    numGenre = GENRE[genre];
   }
 
   const getIngredient = (e) => {
