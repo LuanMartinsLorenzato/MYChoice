@@ -3,8 +3,9 @@ import { Alert } from 'react-native';
 import ButtonAsk from '../../components/ButtonAsk/ButtonAsk';
 import Header from '../../components/Header/Header';
 import SelectInput from '../../components/Select/SelectInput';
-import requestApi from '../../services/requestApi'
+import requestApi from '../../services/requestApi.js'
 import axios from 'axios';
+import requestFood from '../../services/requestFood.js'
 
 import {
     KeyboardView,
@@ -19,14 +20,16 @@ import {
 
 function Maf({ route }) {
     let axiosOptions = requestApi(route.params?.stream, route.params?.numGenre, route.params?.page);
+    let foods = route.params?.ingredient;
     const [film, setFilm] = useState();
+    const [food, setFood] = useState(); // Alterar para ([]) apenas para virar array
     const [drink, setDrink] = useState("Texto");
-    const [food, setFood] = useState("Texto");
     const [dessert, setDessert] = useState("Texto");
-    let filmArray = []
+    let foodObj = [];
+    let filmArray = [];
     useEffect(() => {
         Alert.alert("Parabéns!","Já temos o resultado!\nDivirta-se!!")
-        async function getData() {
+        async function getDataFilm() {
             await axios.request(axiosOptions).then(function (response) {
                 response.data.results.map(index => {
                     filmArray.push(index.title);
@@ -35,9 +38,20 @@ function Maf({ route }) {
             }).catch(function (error) {
             console.error(error);
             Alert.alert("Ops, ocorreu um erro em nossos sistemas\nRecarregue o app e tente novamente!");
-            })
+            });
         }
-        getData();
+        async function getDataFood() {
+            await requestFood(route.params?.ingredient).then((data) => {
+                data.meals.map(i => {
+                    foodObj.push(i)
+                })
+                setFood(foodObj[0].name) // Alterar para (foodObj) apenas para virar array
+            }).catch((e) => {
+                console.log(e)
+            });
+        }
+        getDataFood()
+        getDataFilm();
     }, []);
 
     return(

@@ -64,7 +64,7 @@ function PChoice({route}) {
           index: 0,
           routes: [{name: "Streaming", params:{
           numGenre: numGenre, 
-          ingredient: ingredient, 
+          ingredient: ingredient,
           age: age, 
           month: month,
           name: route.params?.name

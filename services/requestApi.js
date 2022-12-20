@@ -13,7 +13,7 @@ export default function api(stream, genre, page) {
     language: 'en'
     },
     headers: {
-      'X-RapidAPI-Key': 'e3c33bc64bmshcb960fa0796bac4p1cd162jsn2ec94e46711f',
+      'X-RapidAPI-Key': '4123081fe8msh9b739bdb23b939cp12b6a3jsn6fec55cff028', // e3c33bc64bmshcb960fa0796bac4p1cd162jsn2ec94e46711f
       'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
     }
   })
